@@ -1,4 +1,4 @@
 FROM openjdk:17
 EXPOSE 8080
-ADD demo.jar   # Replace with the correct .jar name if different
-ENTRYPOINT ["java", "-jar", "/demo.jar"]
+ADD /gradle/wrapper/gradle-wrapper.jar   # Replace with the correct .jar name if different
+ENTRYPOINT ["java", "-jar", "/gradle-wrapper.jar"]
