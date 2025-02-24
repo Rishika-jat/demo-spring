@@ -1,3 +1,4 @@
+
 name: Spring Boot CI/CD Pipeline
 
 on:
@@ -24,7 +25,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      # Cache Gradle dependencies to speed up builds
+      # Cache dependencies to speed up builds
       - name: Cache Gradle dependencies
         uses: actions/cache@v2
         with:
@@ -33,7 +34,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      # Build the project using Gradle (this generates the .jar file)
+      # Build the project using Gradle
       - name: Build with Gradle
         run: gradle build --no-daemon --exclude-task test
 
@@ -41,7 +42,7 @@ jobs:
       - name: Run tests
         run: gradle test --no-daemon
 
-      # Build & push Docker image
+      # Build & Push Docker image
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
@@ -51,3 +52,6 @@ jobs:
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+
+
