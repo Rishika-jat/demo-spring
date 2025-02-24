@@ -33,13 +33,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      # Run Gradle build with the Gradle wrapper
+      # Build the project using Gradle
       - name: Build with Gradle
-        run: ./gradlew build --no-daemon --exclude-task test
+        run: gradle build --no-daemon --exclude-task test
 
       # Run tests (optional)
       - name: Run tests
-        run: ./gradlew test --no-daemon
+        run: gradle test --no-daemon
 
       # Build & Push Docker image
       - name: Build & push Docker image
