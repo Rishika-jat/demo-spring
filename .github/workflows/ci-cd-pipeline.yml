@@ -24,7 +24,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      # Cache dependencies to speed up builds
+      # Cache Gradle dependencies to speed up builds
       - name: Cache Gradle dependencies
         uses: actions/cache@v2
         with:
@@ -33,7 +33,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      # Build the project using Gradle
+      # Build the project using Gradle (this generates the .jar file)
       - name: Build with Gradle
         run: gradle build --no-daemon --exclude-task test
 
@@ -41,7 +41,7 @@ jobs:
       - name: Run tests
         run: gradle test --no-daemon
 
-      # Build & Push Docker image
+      # Build & push Docker image
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
