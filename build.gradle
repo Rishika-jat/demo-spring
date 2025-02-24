@@ -28,6 +28,6 @@ tasks.named('test') {
 }
 
 bootJar {
-    archiveBaseName  = 'demo'  // Set a custom name for the .jar file
+    archiveBaseName  = 'graddle-wrapper'  // Set a custom name for the .jar file
     version =  '0.1.0'  // Optional: you can version your JAR
 }
