@@ -41,12 +41,4 @@ jobs:
       - name: Run tests
         run: gradle test --no-daemon
 
-      # If you want to build the Docker image for deployment (optional)
-      - name: Build Docker image
-        run: docker build -t your-image-name .
-
-      # Deploy to a server or container registry (optional step)
-      - name: Deploy to Docker Hub (or other registry)
-        run: |
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker push rishika03/demo:tagname
+     
