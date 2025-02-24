@@ -25,21 +25,21 @@ jobs:
           distribution: 'temurin'
 
       # Cache dependencies to speed up builds
-      - name: Cache dependencies
+      - name: Cache Gradle dependencies
         uses: actions/cache@v2
         with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/build.gradle*') }}
           restore-keys: |
-            ${{ runner.os }}-maven-
+            ${{ runner.os }}-gradle-
 
-      # Build the project using Maven
-      - name: Build with Maven
-        run: mvn clean install -DskipTests
+      # Build the project using Gradle
+      - name: Build with Gradle
+        run: gradle build --no-daemon --exclude-task test
 
       # Run tests (optional)
       - name: Run tests
-        run: mvn test
+        run: gradle test --no-daemon
 
       # If you want to build the Docker image for deployment (optional)
       - name: Build Docker image
