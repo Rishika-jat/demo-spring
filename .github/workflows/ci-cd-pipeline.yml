@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: 'adoptium'
+          distribution: 'temurin'
 
       # Cache dependencies to speed up builds
       - name: Cache dependencies
