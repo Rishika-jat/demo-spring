@@ -48,5 +48,5 @@ jobs:
       # Deploy to a server or container registry (optional step)
       - name: Deploy to Docker Hub (or other registry)
         run: |
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker login -u ${{ secrets.rishika03 }} -p ${{ secrets.Rishika!@12 }}
           docker push your-image-name:latest
